@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(lego_loam_bor)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3 -g ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3 -g ")
 
 #
 
@@ -22,8 +22,9 @@ find_package(catkin REQUIRED COMPONENTS
   cloud_msgs
 )
 
+find_package(Boost REQUIRED COMPONENTS serialization filesystem system thread date_time timer chrono)
+find_package(Eigen3 REQUIRED)
 find_package(GTSAM REQUIRED QUIET)
-find_package(PCL REQUIRED QUIET)
 
 catkin_package(
   INCLUDE_DIRS include
